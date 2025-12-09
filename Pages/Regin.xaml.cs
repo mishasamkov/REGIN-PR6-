@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using Aspose.Imaging;
 
 namespace REGIN.Pages
 {
@@ -140,7 +146,10 @@ namespace REGIN.Pages
                         int X = 0; int Width = 256; int Y = 0; int Height = 256;
                         if (rasterImage.Width > rasterImage.Height) X = (int)((rasterImage.Width - 256f) / 2);
                         else Y = (int)((rasterImage.Height - 256f) / 2);
-                        Imaging.Rectangle rectangle = new Imaging.Rectangle(X, Y, Width, Height);
+                        Imaging.Rectangle rectangle = new Imaging.Rectangle(X,
+                                                                            Y,
+                                                                            Width,
+                                                                            Height);
                         rasterImage.Crop(rectangle);
                         rasterImage.Save("ic-user.png");
                     }
